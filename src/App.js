@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{useState} from 'react';
+import Navbar from './Components/Navbar';
+import Hero from './Components/Hero';
 
 function App() {
+  const [drop1, setDrop1] = useState(false);
+  const [drop2, setDrop2] = useState(false);
+
+  const closeAll = () => {
+    setDrop1(false);
+    setDrop2(false);
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Navbar  drop1={drop1} drop2={drop2} setDrop1={setDrop1} setDrop2={setDrop2} closeAll={closeAll} />
+      <Hero closeAll={closeAll}/>
     </div>
   );
 }
